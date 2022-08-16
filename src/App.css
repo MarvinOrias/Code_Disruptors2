@@ -1,38 +1,157 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Russo One', monospace;
+  color: #EBE8E7;
+  letter-spacing: 1.5px;
+}
+
+#body{
+  background-color: #43413D;
+}
+
+/*Navbar*/
+
+.Nav{
+  animation: nav-anm 2s;
+}
+
+@keyframes nav-anm{
+  0%{
+    opacity: 0%;
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(0%);
+  }
+}
+
+/*Home page*/
+
+.home{
+  margin-top: 20px;
+  margin-left: 20px;
+  animation: home-anm 2s;
+}
+
+@keyframes home-anm{
+  0%{
+    opacity: 0%;
+    transform: translateY(100vh);
+  }
+  100%{
+    transform: translateY(0%);
+  }
+}
+
+/*Error page*/
+
+.error{
   text-align: center;
+  margin-top: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.error-a{
+  text-decoration: none;
+  color: #EBE8E7;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.error-h3-2{
+  animation: error-h3-2-anm 2s;
+}
+
+@keyframes error-h3-2-anm{
+  0%{
+    transform: scale(0);
+  }
+  100%{
+
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.error-h3{
+  animation: error-h3-anm 2s;;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes error-h3-anm{
+  0%{
+    transform: translateX(100vw);
   }
-  to {
-    transform: rotate(360deg);
+  100%{
+    transform: translateX(0%);
+  }
+}
+
+.error-a:hover{
+  color: #F1D239;
+}
+
+.error-img{
+  width: 60vw;
+  animation: error-img-anm 2s;
+}
+
+.error-img:hover{
+  transform: scale(1.1, 1.2);
+}
+
+@keyframes error-img-anm{
+  0%{
+    opacity: 0%;
+  }
+  100%{
+    opacity: 100%;
+  }
+}
+
+/*Login*/
+
+.login{
+  margin-top: 20px;
+  animation: login-anm 2s;
+}
+
+@keyframes login-anm{
+  0%{
+    opacity: 0%;
+  }
+  100%{
+    opacity: 100%;
+  }
+}
+
+/*Products page*/
+
+.products{
+  margin-top: 20px;
+  animation: products-anm 2s;
+}
+
+.image{
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+}
+
+#Card{
+  font-size: 13px;
+  margin-top: 30px;
+  background-color: #22262A;
+  width: 350px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  height: 32rem;
+}
+
+@keyframes products-anm{
+  0%{
+    opacity: 15%;
+    transform: translateY(100vh);
+  }
+  100%{
+    transform: translateY(0%);
   }
 }
