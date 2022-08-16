@@ -16,7 +16,7 @@ export default function Products(props){
 
 	const newItems = products.map((items) => {
 		return(
-			<Col sm={12} md={3} key={items.id}>
+			<Col sm={12} md={6} xl={4} key={items.id}>
 				<Card id="Card">
 					<img variant="top" src={items.image} className="image" alt={'1234'} style={{padding: '10px', borderRadius: '15%'}}/>
 					<Card.Body>
