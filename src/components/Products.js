@@ -8,14 +8,43 @@ import Error404 from './Error404';
 export default function Products(props){
 	const [products, setProducts] = useState([]);
 	const navigate = useNavigate();
+	const token = localStorage.getItem('user token');
 
 	useEffect(() => {
-		fetch('https://fakestoreapi.com/products')
-						.then(res=>res.json())
-						.then((json) => {
-						setProducts(json);
-			           })
-	}, [localStorage.getItem('user token')]);
+		if(token === null){
+			fetch('https://fakestoreapi.com/products')
+							.then(res=>res.json())
+							.then((json) => {
+							setProducts(json);
+				           })
+		}
+		else{
+			fetch('https://code-eater-e-commerce.herokuapp.com/users/details', {
+				method: "GET",
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			}).then((response) => {
+				return response.json();
+			}).then((userDetails) => {
+				if(userDetails.message === 'Failed authentication'){
+					localStorage.clear();
+					Swal.fire({
+						text: 'Please log in again'
+					});
+					navigate('/');
+				}
+				else{
+					fetch('https://fakestoreapi.com/products')
+									.then(res=>res.json())
+									.then((json) => {
+									setProducts(json);
+						           })
+				}
+				console.log(userDetails)
+			})
+		}
+	}, [token]);
 
 	const newItems = products.map((items) => {
 		return(
