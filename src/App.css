@@ -88,6 +88,7 @@
 }
 
 .error-img{
+  background-attachment: fixed;
   width: 60vw;
   animation: error-img-anm 2s;
 }
@@ -154,4 +155,15 @@
   100%{
     transform: translateY(0%);
   }
+}
+
+.products-div1{
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 2px 3px 10px #329A61;
+}
+
+.products-div1:hover{
+  opacity: 40%;
 }

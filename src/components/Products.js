@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {Card, Row, Col} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -8,6 +8,7 @@ import Error404 from './Error404';
 export default function Products(props){
 	const [products, setProducts] = useState([]);
 	const navigate = useNavigate();
+	const load = useRef(true);
 	const token = localStorage.getItem('user token');
 
 	useEffect(() => {
@@ -88,13 +89,8 @@ export default function Products(props){
 				localStorage.getItem('user token') === null
 				?
 				<>
-					{
-						Swal.fire({
-							icon: 'warning',
-							text: 'Please log in to see products'
-						})
-					}
 					<Error404 />
+					<div className="products-div1">Please log in first</div>
 				</>
 				:
 				<div className="products">
