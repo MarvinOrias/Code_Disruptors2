@@ -40,16 +40,7 @@ export default function LoginPage(){
 			}).then((response) => {
 				return response.json();
 			}).then((login) => {
-				if(login.message === 'Failed authentication'){
-					localStorage.clear();
-					navigate('/');
-					Swal.fire({
-						title: 'Session expired',
-						icon: 'warning',
-						text: `Please log in again`
-					})
-				}
-				else if(login.message === 'Email or password incorrect'){
+				if(login.message === 'Email or password incorrect'){
 					Swal.fire({
 						title: 'Incorrect',
 						icon: 'warning',
