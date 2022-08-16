@@ -87,7 +87,15 @@ export default function Products(props){
 			{
 				localStorage.getItem('user token') === null
 				?
-				<Error404 />
+				<>
+					{
+						Swal.fire({
+							icon: 'warning',
+							text: 'Please log in to see products'
+						})
+					}
+					<Error404 />
+				</>
 				:
 				<div className="products">
 					<Row>
