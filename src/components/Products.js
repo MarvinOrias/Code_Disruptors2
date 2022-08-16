@@ -10,7 +10,7 @@ export default function Products(props){
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		fetch('http://localhost:4000/users/details', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/users/details', {
 			method: "GET",
 			headerrs: {
 				Authorization: `Bearer ${localStorage.getItem('user token')}`
