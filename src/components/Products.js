@@ -10,31 +10,11 @@ export default function Products(props){
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		fetch('https://code-eater-e-commerce.herokuapp.com/users/details', {
-			method: "GET",
-			headerrs: {
-				Authorization: `Bearer ${localStorage.getItem('user token')}`
-			}
-		}).then((response) => {
-			return response.json();
-		}).then((details) => {
-			if(details.message === 'Failed authentication'){
-				localStorage.clear();
-				navigate('/');
-				Swal.fire({
-					title: 'Session expired',
-					icon: 'warning',
-					text: `Please log in again`
-				})
-			}
-			else{
-				fetch('https://fakestoreapi.com/products')
-				.then(res=>res.json())
-				.then((json) => {
-				setProducts(json);
-	           })
-			}
-		})
+		fetch('https://fakestoreapi.com/products')
+						.then(res=>res.json())
+						.then((json) => {
+						setProducts(json);
+			           })
 	}, [localStorage.getItem('user token')]);
 
 	const newItems = products.map((items) => {
