@@ -14,8 +14,8 @@ export default function Login(props){
 				<Row>
 					<Col sm={12} md={6}>
 						<Form.Group className="mb-3" controlId="formBasicEmail">
-						  <Form.Label>Email address</Form.Label>
-						  <Form.Control type="email" placeholder="Enter email" onChange={props.email} />
+						  <Form.Label>Username</Form.Label>
+						  <Form.Control type='text' placeholder="Enter email" onChange={props.email} />
 						</Form.Group>
 					</Col>
 

@@ -13,11 +13,9 @@ export default function Products(props){
 
 	useEffect(() => {
 		if(token === null){
-			fetch('https://fakestoreapi.com/products')
-							.then(res=>res.json())
-							.then((json) => {
-							setProducts(json);
-				           })
+			Swal.fire({
+						text: 'Please log in first to view products'
+					});
 		}
 		else{
 			fetch('https://code-eater-e-commerce.herokuapp.com/users/details', {
