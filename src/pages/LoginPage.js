@@ -29,7 +29,7 @@ export default function LoginPage(){
 			})
 		}
 		else{
-			/*fetch('https://code-eater-e-commerce.herokuapp.com/users/login', {
+			fetch('https://code-eater-e-commerce.herokuapp.com/users/login', {
 				method: "POST",
 				headers: {
 					"Content-Type":"application/json"
@@ -68,28 +68,6 @@ export default function LoginPage(){
 							navigate('/');
 						}, 1500)
 					})
-				}
-			})*/
-			fetch(`https://fakestoreapi.com/users/1`)
-			.then(res=>res.json())
-			.then((allUsers) => {
-				console.log(allUsers)
-				setUsers(allUsers);
-				if(email !== allUsers.username || pass !== allUsers.password){
-					Swal.fire({
-						text: 'Email or password incorrect'
-					})
-				}
-				else{
-					localStorage.setItem('user token', allUsers.username);
-					Swal.fire({
-							title: 'Successful',
-							icon: 'success',
-							text: 'Logged in'
-						});
-						setTimeout(() => {
-							navigate('/');
-						}, 1500)
 				}
 			})
 		}
